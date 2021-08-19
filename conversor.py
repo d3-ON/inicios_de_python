@@ -5,7 +5,7 @@ Bienvenido al conversor de monedas 💴➡💱➡💵
 2 - Pesos argentinos
 3 - Pesos mexicanos
 
-Elige una opción"""))
+Elige una opción: """))
 
 if menu ==1:
     pesos = float(input("Cuántos Pesos colombianos tienes? "))
