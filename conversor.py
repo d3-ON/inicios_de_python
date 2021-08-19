@@ -10,17 +10,17 @@ Elige una opción"""))
 if menu ==1:
     pesos = float(input("Cuántos Pesos colombianos tienes? "))
     valor_dolar = 3870.40
-    dolar = str(round(dolar / valor_dolar, 2))
+    dolar = str(round(pesos / valor_dolar, 2))
     print("Tienes " + dolar + " dolares")
 elif menu == 2:
     pesos = float(input("Cuántos Pesos argentinos tienes? "))
     valor_dolar = 97.30
-    dolar = str(round(dolar / valor_dolar, 2))
+    dolar = str(round(pesos / valor_dolar, 2))
     print("Tienes " + dolar + " dolares")
 elif menu == 3:
-    dolar = float(input("Cuántos Pesos mexicanos tienes? "))
+    pesos = float(input("Cuántos Pesos mexicanos tienes? "))
     valor_dolar = 20.17
-    dolar = str(round(dolar / valor_dolar, 2))
+    dolar = str(round(pesos / valor_dolar, 2))
     print("Tienes " + dolar + " dolares")
 else:
     print("Por favor ingresa una opción valida")
