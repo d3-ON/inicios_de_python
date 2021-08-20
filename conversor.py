@@ -14,10 +14,10 @@ def conversor_monedas(pais, valor):
     print("Tienes " + dolar + " dolares")
 
 if menu == 1:
-    conversor_monedas(colombianos, 3870.40)
+    conversor_monedas("colombianos", 3870.40)
 elif menu == 2:
-    conversor_monedas(argentinos, 97.29)
+    conversor_monedas("argentinos", 97.29)
 elif menu == 3:
-    conversor_monedas(mexicanos, 20.15)
+    conversor_monedas("mexicanos", 20.15)
 else:
     print("Por favor ingresa una opción valida")
