@@ -5,12 +5,11 @@ Bienvenido al conversor de monedas 💴➡💱➡💵
 2 - Pesos argentinos
 3 - Pesos mexicanos
 
-Elige una opción: """))
+Elige una opción:"""))
 
 def conversor_monedas(pais, valor):
     pesos = float(input("Cuántos Pesos " + pais + " tienes?" ))
-    valor_dolar = valor
-    dolar = str(round(pesos / valor_dolar, 2))
+    dolar = str(round(pesos / valor, 2))
     print("Tienes " + dolar + " dolares")
 
 if menu == 1:
