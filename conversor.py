@@ -7,20 +7,17 @@ Bienvenido al conversor de monedas 💴➡💱➡💵
 
 Elige una opción: """))
 
-if menu ==1:
-    pesos = float(input("Cuántos Pesos colombianos tienes? "))
-    valor_dolar = 3870.40
+def conversor_monedas(pais, valor):
+    pesos = float(input("Cuántos Pesos " + pais + " tienes?" ))
+    valor_dolar = valor
     dolar = str(round(pesos / valor_dolar, 2))
     print("Tienes " + dolar + " dolares")
+
+if menu == 1:
+    conversor_monedas(colombianos, 3870.40)
 elif menu == 2:
-    pesos = float(input("Cuántos Pesos argentinos tienes? "))
-    valor_dolar = 97.30
-    dolar = str(round(pesos / valor_dolar, 2))
-    print("Tienes " + dolar + " dolares")
+    conversor_monedas(argentinos, 97.29)
 elif menu == 3:
-    pesos = float(input("Cuántos Pesos mexicanos tienes? "))
-    valor_dolar = 20.17
-    dolar = str(round(pesos / valor_dolar, 2))
-    print("Tienes " + dolar + " dolares")
+    conversor_monedas(mexicanos, 20.15)
 else:
     print("Por favor ingresa una opción valida")
