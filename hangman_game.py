@@ -13,25 +13,22 @@ def words_list():
     return words_list
 
 
-def hiden(word):
-    hiden_word = ''
+def random_word(word):
+    aleatory_word = random.choice(word)
+    dict_word = {}
+    counter = 0
     
-    for i in word:
-        hiden_word += i.replace(i, '_ ')
-    
-    return hiden_word
-    
-    
-# def letter():
-#     letter_in = input('Enter a lowercase letter: ')
-#     for i in :
+    for i in aleatory_word:
+        dict_word[counter] = i
+        counter += 1   
+        
+    return dict_word
+
           
 
-
 def run():
-    random_word = random.choice(words_list())
-    
-    print(hiden(random_word))
+    step_1 = words_list()
+    step_2 = random_word(step_1)
     
 
 
