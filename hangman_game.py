@@ -33,7 +33,10 @@ def dict_word(word):
     return dict_word
 
 def letter_in():
-    letter = input('')
+    letter = input('Type a lowercase letter and press enter: ')
+    
+    for i in word:
+        if letter ==
 
 
 def character_cleaner(word):
