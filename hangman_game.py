@@ -32,12 +32,11 @@ def dict_word(word):
         
     return dict_word
 
-def letter_in():
-    user_in = input('Type a lowercase letter and press enter: ')
+def letter_in(dict_word, hidde):
+    letter_entry = input('Type a lowercase letter and press enter: ')
     
-    for i, letter in enumerate(list(word)):
-        if user_in == letter:
-            dict_hidde.get(i) = 
+    for i in hidde:
+            
             
                 
             
