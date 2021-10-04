@@ -33,19 +33,24 @@ def dict_word(word):
     return dict_word
 
 def letter_in():
-    letter = input('Type a lowercase letter and press enter: ')
+    user_in = input('Type a lowercase letter and press enter: ')
     
-    for i in word:
-        if letter ==
+    for i, letter in enumerate(list(word)):
+        if user_in == letter:
+            dict_hidde.get(i) = 
+            
+                
+            
 
 
 def character_cleaner(word):
     word = (word.replace("'","").replace(',','')
             .replace('[','').replace(']',''))
     
+    """Alternative method for clean rare characters"""
     # clean = ''
     # for i in word:
-    #     if i != '_' and i != ' ' and i != "letra que ingresa el usuario":
+    #     if i != '_' and i != ' ' and i != """letter entered by user""":
     #         i = i.replace(i, '')
     #     clean += i
 
