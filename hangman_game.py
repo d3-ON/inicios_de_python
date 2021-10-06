@@ -1,6 +1,7 @@
 import random
-import os   
-
+import os
+from typing import Counter   
+count = 0
 
 def words_list():
     words_list = []
@@ -24,45 +25,53 @@ def hidde_word(word):
 
 def dict_word(word):
     dict_word = {}
-    counter = 0
+    counter_ = 0
     
     for i in word:
-        dict_word[counter] = i
-        counter += 1   
+        dict_word[counter_] = i
+        counter_ += 1   
         
     return dict_word
 
-def letter_in(dict_word, hidde):
-    letter_entry = input('Type a lowercase letter and press enter: ')
-    
-    for i in hidde:
-            
-            
-                
-            
 
-
-def character_cleaner(word):
+def cleaner(word):
     word = (word.replace("'","").replace(',','')
             .replace('[','').replace(']',''))
-    
-    """Alternative method for clean rare characters"""
-    # clean = ''
-    # for i in word:
-    #     if i != '_' and i != ' ' and i != """letter entered by user""":
-    #         i = i.replace(i, '')
-    #     clean += i
 
     return word
 
 
+def letter(dict, hidde, step_1):
+    print(cleaner(str(hidde)))
+    print(step_1)
+    letter_entry = input('Type a lowercase letter and press enter: ')
+    global count
+    counter = 0
+        
+    for i, chars in enumerate(hidde):
+            if letter_entry == dict.get(i):
+                hidde[i] = dict[i]
+                counter += 1
+            # else:
+            #     letter(dict, hidde, step_1)
+    count += counter            
+    # print('in' count)
+    return hidde 
+
+
 def run():
     step_1 = random.choice(words_list())
-    step_2 = str(hidde_word(step_1))
+    step_2 = hidde_word(step_1)
     step_3 = dict_word(step_1)
+    step_4 = step_2
+    global count
     
-    print(character_cleaner(step_2))
-    print(step_3)
+    while count < len(step_1):
+        step_4 = letter(step_3, step_4, step_1)
+        # print('out' count)
+                  
+    print(cleaner(str(step_4)))          
+
 
 if __name__ == '__main__':
     run()
