@@ -45,8 +45,9 @@ def letter(dict, hidde, step_1):
     print(cleaner(str(hidde)))
     print(step_1)
     letter_entry = input('Type a lowercase letter and press enter: ')
-    global count
     counter = 0
+    global count
+
         
     for i, chars in enumerate(hidde):
             if letter_entry == dict.get(i):
