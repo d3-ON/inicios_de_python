@@ -1,7 +1,8 @@
 import random
 import os
-from typing import Counter   
 count = 0
+# accent = {'a':'á', 'e':'é', 'i':'í', 'o':'ó', 'u':'ú'}
+accent = {'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u'}
 
 def words_list():
     words_list = []
@@ -45,13 +46,20 @@ def letter(dict, hidde, step_1):
     print(cleaner(str(hidde)))
     print(step_1)
     letter_entry = input('Type a lowercase letter and press enter: ')
-    global count
     counter = 0
+    global count
+    global accent
+    print(accent)
         
     for i, chars in enumerate(hidde):
             if letter_entry == dict.get(i):
                 hidde[i] = dict[i]
-                counter += 1
+                counter += 1                
+            elif letter_entry:
+                for key, value in accent.items():
+                    if dict.get(i) == key and letter_entry == value:
+                        hidde[i] = key
+                        counter += 1
             # else:
             #     letter(dict, hidde, step_1)
     count += counter            
