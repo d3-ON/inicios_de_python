@@ -54,17 +54,17 @@ def letter(dict, hidde, step_1):
     global accent
         
     for i, chars in enumerate(hidde):
-        for j in DATA:
-            if letter_entry == j:
-                if letter_entry == dict.get(i):
-                    hidde[i] = dict[i]
-                    counter += 1                
-                else:
-                    for key, value in accent.items():
-                        if dict.get(i) == key and letter_entry == value:
-                            hidde[i] = key
-                            counter += 1
-            elif letter_entry != j:
+        # for j in DATA:
+        #     if letter_entry == j:
+        if letter_entry == dict.get(i):
+            hidde[i] = dict[i]
+            counter += 1                
+        else:
+            for key, value in accent.items():
+                if dict.get(i) == key and letter_entry == value:
+                    hidde[i] = key
+                    counter += 1
+            # elif letter_entry != j:
                 
             #     letter(dict, hidde, step_1)
     count += counter            
