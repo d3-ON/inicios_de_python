@@ -1,7 +1,6 @@
 import random
 import os
 count = 0
-# accent = {'a':'á', 'e':'é', 'i':'í', 'o':'ó', 'u':'ú'}
 accent = {'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u'}
 
 def words_list():
@@ -19,18 +18,22 @@ def hidde_word(word):
     hidde = ''
     
     for i in range(len(word)):
-        hidde += '_'
-    
+        if i == 2:
+            hidde += ' '
+        else: 
+            hidde += '_'
+
     return list(hidde)
               
 
 def dict_word(word):
+    counter = 0
+    
     dict_word = {}
-    counter_ = 0
     
     for i in word:
-        dict_word[counter_] = i
-        counter_ += 1   
+        dict_word[counter] = i
+        counter += 1   
         
     return dict_word
 
@@ -49,34 +52,39 @@ def letter(dict, hidde, step_1):
     counter = 0
     global count
     global accent
-    print(accent)
         
     for i, chars in enumerate(hidde):
-            if letter_entry == dict.get(i):
-                hidde[i] = dict[i]
-                counter += 1                
-            elif letter_entry:
-                for key, value in accent.items():
-                    if dict.get(i) == key and letter_entry == value:
-                        hidde[i] = key
-                        counter += 1
-            # else:
+        for j in DATA:
+            if letter_entry == j:
+                if letter_entry == dict.get(i):
+                    hidde[i] = dict[i]
+                    counter += 1                
+                else:
+                    for key, value in accent.items():
+                        if dict.get(i) == key and letter_entry == value:
+                            hidde[i] = key
+                            counter += 1
+            elif letter_entry != j:
+                
             #     letter(dict, hidde, step_1)
     count += counter            
-    # print('in' count)
+
     return hidde 
 
 
 def run():
-    step_1 = random.choice(words_list())
+    step_1 = 'te amo'#random.choice(words_list())
     step_2 = hidde_word(step_1)
     step_3 = dict_word(step_1)
     step_4 = step_2
     global count
     
     while count < len(step_1):
+        os.system('cls')
         step_4 = letter(step_3, step_4, step_1)
         # print('out' count)
+        os.system('cls')
+
                   
     print(cleaner(str(step_4)))          
 
