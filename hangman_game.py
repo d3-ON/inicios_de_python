@@ -1,7 +1,11 @@
 import random
 import os
-from typing import Counter   
 count = 0
+DATA = ['a', 'á', 'b', 'c', 'd', 'e', 'é', 'h', 'i', 'í', 
+        'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'ó', 'p', 'q', 
+        'r', 's', 't', 'u', 'ú', 'v', 'w', 'x', 'y', 'z']
+ACCENT = {'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u'}
+
 
 def words_list():
     words_list = []
@@ -19,17 +23,22 @@ def hidde_word(word):
     
     for i in range(len(word)):
         hidde += '_'
-    
+        # if i == 2:
+        #     hidde += ' '
+        # else: 
+            # hidde += '_'
+
     return list(hidde)
               
 
 def dict_word(word):
+    counter = 0
+    
     dict_word = {}
-    counter_ = 0
     
     for i in word:
-        dict_word[counter_] = i
-        counter_ += 1   
+        dict_word[counter] = i
+        counter += 1   
         
     return dict_word
 
@@ -47,16 +56,25 @@ def letter(dict, hidde, step_1):
     letter_entry = input('Type a lowercase letter and press enter: ')
     counter = 0
     global count
-
-        
-    for i, chars in enumerate(hidde):
-            if letter_entry == dict.get(i):
-                hidde[i] = dict[i]
-                counter += 1
-            # else:
+    global ACCENT
+    global DATA 
+    
+    for j in DATA:
+        if letter_entry == j:    
+            for i, chars in enumerate(hidde):
+                        if letter_entry == dict.get(i):
+                            hidde[i] = dict[i]
+                            counter += 1                
+                        else:
+                            for key, value in ACCENT.items():
+                                if dict.get(i) == key and letter_entry == value:
+                                    hidde[i] = key
+                                    counter += 1
+            # elif letter_entry != j:
+                
             #     letter(dict, hidde, step_1)
     count += counter            
-    # print('in' count)
+
     return hidde 
 
 
@@ -68,8 +86,11 @@ def run():
     global count
     
     while count < len(step_1):
+        os.system('cls')
         step_4 = letter(step_3, step_4, step_1)
         # print('out' count)
+        os.system('cls')
+
                   
     print(cleaner(str(step_4)))          
 
